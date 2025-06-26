@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search in Video</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-video me-2"></i>Search in Video
+            </a>
+        </div>
+    </nav>
+
+    <div class="container main-container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="hero-section text-center mb-5">
+                    <h1>Search your content in Video with AI</h1>
+                    <p class="lead">Upload any video and then search the content to find in your video</p>
+                </div>
+
+                <div class="upload-section card shadow">
+                    <div class="card-body p-4">
+                        <div id="upload-area" class="text-center py-5">
+                            <i class="fas fa-cloud-upload-alt upload-icon mb-3"></i>
+                            <h3>Upload Your Video</h3>
+                            <p class="text-muted">Drag and drop your video file or click to browse</p>
+                            <input type="file" id="video-upload" class="d-none" accept="video/*">
+                            <button id="browse-btn" class="btn btn-primary mt-3">
+                                <i class="fas fa-folder-open me-2"></i>Browse Files
+                            </button>
+                        </div>
+                        
+                        <div id="upload-progress" class="d-none">
+                            <h4 class="mb-3">Processing Video</h4>
+                            <div class="progress mb-3">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            <p id="progress-status">Uploading video...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="search-section" class="card shadow mt-4 d-none">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-4">Search Within Your Video</h3>
+                        
+                        <!-- New video player container -->
+                        <div id="video-player-container" class="mb-4 d-none">
+                            <h4 class="mb-3">Video Player</h4>
+                            <video id="video-player" class="w-100" controls>
+                                <source id="video-source" src="" type="video/mp4">
+                                Your browser does not support HTML5 video.
+                            </video>
+                        </div>
+                        
+                        <div class="input-group mb-3">
+                            <input type="text" id="search-input" class="form-control" placeholder="What are you looking for?">
+                            <button id="search-btn" class="btn btn-primary">
+                                <i class="fas fa-search me-2"></i>Search
+                            </button>
+                        </div>
+                        
+                        <div id="results-container" class="mt-4 d-none">
+                            <h4>Search Results</h4>
+                            <div id="results-list" class="list-group mt-3">
+                                <!-- Results will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center">
+            <span class="text-muted">Search in Video &copy; 2025 | Made by Rizwan, Yash, Amber, Mudasir</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
